@@ -1,0 +1,48 @@
+.Field {
+    border: 1px solid red;
+    padding: 1em;
+    display: grid;
+    grid-template-columns: repeat(6, 100px);
+    grid-template-rows: repeat(6, 100px);
+    gap: 10px;
+    user-select: none;
+}
+
+.Field-cell {
+    --size: 100px;
+    flex: 0 1 var(--size);
+    height: var(--size);
+    cursor: pointer;
+    position: relative;
+}
+
+.Field-cell-front {
+    transform: perspective(600px) rotateY(0deg);
+    background-color: #f1f1f1;
+}
+
+.Field-cell-back {
+    transform: perspective(600px) rotateY(180deg);
+    background-color: #f1f1f1;
+    font-size: 0;
+}
+
+.Field-cell-back, .Field-cell-front {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    backface-visibility: hidden;
+    position: absolute;
+    transition: transform .4s linear;
+    border: 1px solid gray;
+}
+
+
+.Field-cell-clicked .Field-cell-front {
+    transform: perspective(600px) rotateY(-180deg);
+}
+
+.Field-cell-clicked .Field-cell-back {
+    transform: perspective(600px) rotateY(0deg);
+    font-size: 2em;
+}
