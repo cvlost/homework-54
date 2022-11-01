@@ -1,0 +1,12 @@
+.TryCounter {
+    font-size: 1.4em;
+    color: gray;
+    margin-right: 2em;
+}
+
+.TryCounter span {
+    font-weight: bold;
+    font-size: 1.2em;
+    color: black;
+    margin-left: .3em;
+}

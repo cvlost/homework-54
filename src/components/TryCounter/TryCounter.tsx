@@ -1,4 +1,5 @@
 import React from 'react';
+import './TryCounter.css';
 
 interface Props {
   counter: number;
@@ -6,8 +7,8 @@ interface Props {
 
 const TryCounter: React.FC<Props> = ({counter}) => {
   return (
-    <div>
-      Tries: {counter}
+    <div className="TryCounter">
+      Tries: <span>{counter}</span>
     </div>
   );
 };

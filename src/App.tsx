@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
-import './App.css';
 import Field from "./components/Field/Field";
 import TryCounter from "./components/TryCounter/TryCounter";
 import ResetButton from "./components/ResetButton/ResetButton";
+import './App.css';
 
 function App() {
   const getModel = () => {
@@ -33,7 +33,6 @@ function App() {
   };
 
   const resetGame = () => {
-    console.log('Reset game')
     setCells(getModel());
     setCounter(0);
     setGameFinished(false);
@@ -42,7 +41,7 @@ function App() {
   return (
     <div className="App">
       <Field cells={cells} onCellClick={handleCellClick}/>
-      <div>
+      <div className="App-options">
         <TryCounter counter={counter} />
         <ResetButton onReset={resetGame} />
       </div>

@@ -1,30 +1,39 @@
 .Field {
-    border: 1px solid red;
     padding: 1em;
     display: grid;
-    grid-template-columns: repeat(6, 100px);
-    grid-template-rows: repeat(6, 100px);
-    gap: 10px;
+    grid-template-columns: repeat(6, var(--cell-size));
+    grid-template-rows: repeat(6, var(--cell-size));
+    gap: .5em;
     user-select: none;
+    justify-content: center;
 }
 
 .Field-cell {
-    --size: 100px;
-    flex: 0 1 var(--size);
-    height: var(--size);
     cursor: pointer;
     position: relative;
 }
 
 .Field-cell-front {
     transform: perspective(600px) rotateY(0deg);
-    background-color: #f1f1f1;
+    background-color: #ffc066;
+}
+
+.Field-cell-front:hover {
+    background-color: #ff9600;
 }
 
 .Field-cell-back {
     transform: perspective(600px) rotateY(180deg);
-    background-color: #f1f1f1;
     font-size: 0;
+    line-height: calc(var(--cell-size) / 3);
+    background-color: white;
+    border: 3px solid #dcdcdc;
+}
+
+
+.Field-cell-clicked .Field-cell-back:not(:empty) {
+    border: 3px solid #a0a0a0;
+    background-color: #5dff5d;
 }
 
 .Field-cell-back, .Field-cell-front {
@@ -33,8 +42,7 @@
     overflow: hidden;
     backface-visibility: hidden;
     position: absolute;
-    transition: transform .4s linear;
-    border: 1px solid gray;
+    transition: transform .4s linear, background-color .1s;
 }
 
 
@@ -44,5 +52,23 @@
 
 .Field-cell-clicked .Field-cell-back {
     transform: perspective(600px) rotateY(0deg);
-    font-size: 2em;
+    font-size: 3em;
+}
+
+@media (max-width: 700px) {
+    .Field {
+        font-size: 0.8em;
+    }
+}
+
+@media (max-width: 550px) {
+    .Field {
+        font-size: 0.6em;
+    }
+}
+
+@media (max-width: 420px) {
+    .Field {
+        font-size: 0.5em;
+    }
 }
