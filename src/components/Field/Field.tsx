@@ -15,7 +15,9 @@ const Field: React.FC<Props> = ({cells, onCellClick}) => {
         if (cell.clicked) cellClasses.push('Field-cell-clicked');
         if (cell.hasItem) item = '☹';
         return (
-          <div key={cell.id} className={cellClasses.join(' ')} onClick={() => {onCellClick(cell.id)}}>
+          <div key={cell.id} className={cellClasses.join(' ')} onClick={() => {
+            onCellClick(cell.id)
+          }}>
             <div className="Field-cell-front"></div>
             <div className="Field-cell-back">{item}</div>
           </div>

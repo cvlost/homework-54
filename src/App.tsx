@@ -9,7 +9,7 @@ function App() {
     let id = 0;
     const size = 36;
     const arr = [];
-    for (let i = 0; i < 36; i ++) arr.push({hasItem: false, clicked: false, id: (id++).toString()});
+    for (let i = 0; i < 36; i++) arr.push({hasItem: false, clicked: false, id: (id++).toString()});
     const rand = Math.floor(Math.random() * size);
     arr[rand].hasItem = true;
     return arr;
@@ -42,8 +42,8 @@ function App() {
     <div className="App">
       <Field cells={cells} onCellClick={handleCellClick}/>
       <div className="App-options">
-        <TryCounter counter={counter} />
-        <ResetButton onReset={resetGame} />
+        <TryCounter counter={counter}/>
+        <ResetButton onReset={resetGame}/>
       </div>
     </div>
   );
