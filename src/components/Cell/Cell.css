@@ -1,0 +1,45 @@
+.Cell {
+    cursor: pointer;
+    position: relative;
+}
+
+.Cell-front {
+    transform: perspective(600px) rotateY(0deg);
+    background-color: #ffc066;
+}
+
+.Cell-front:hover {
+    background-color: #ff9600;
+}
+
+.Cell-back {
+    transform: perspective(600px) rotateY(180deg);
+    font-size: 0;
+    line-height: calc(var(--cell-size) / 3);
+    background-color: white;
+    border: 3px solid #dcdcdc;
+}
+
+.Cell-clicked .Cell-back:not(:empty) {
+    border: 3px solid #a0a0a0;
+    background-color: #5dff5d;
+}
+
+.Cell-back, .Cell-front {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    backface-visibility: hidden;
+    position: absolute;
+    transition: transform .4s linear, background-color .1s;
+}
+
+
+.Cell-clicked .Cell-front {
+    transform: perspective(600px) rotateY(-180deg);
+}
+
+.Cell-clicked .Cell-back {
+    transform: perspective(600px) rotateY(0deg);
+    font-size: 3em;
+}

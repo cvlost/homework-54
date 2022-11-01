@@ -1,5 +1,6 @@
 import React from 'react';
 import './Field.css';
+import Cell from "../Cell/Cell";
 
 interface Props {
   cells: CellData[];
@@ -9,20 +10,13 @@ interface Props {
 const Field: React.FC<Props> = ({cells, onCellClick}) => {
   return (
     <div className="Field">
-      {cells.map(cell => {
-        let item = '';
-        const cellClasses = ['Field-cell'];
-        if (cell.clicked) cellClasses.push('Field-cell-clicked');
-        if (cell.hasItem) item = '☹';
-        return (
-          <div key={cell.id} className={cellClasses.join(' ')} onClick={() => {
-            onCellClick(cell.id)
-          }}>
-            <div className="Field-cell-front"></div>
-            <div className="Field-cell-back">{item}</div>
-          </div>
-        );
-      })}
+      {cells.map(cell => (
+        <Cell key={cell.id}
+              clicked={cell.clicked}
+              hasItem={cell.hasItem}
+              onCellClick={() => onCellClick(cell.id)}
+        />
+      ))}
     </div>
   );
 };
